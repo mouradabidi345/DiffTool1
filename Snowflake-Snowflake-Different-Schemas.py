@@ -12,22 +12,22 @@ import datetime
 import datacompy
 
 ctx1 = snowflake.connector.connect(
-          user='MOURADABIDI',
-          password='Ma@07842032',
-          account='ba62849.east-us-2.azure',
+          user='',
+          password='',
+          account='',
           warehouse= 'COMPUTE_MACHINE',
-          database1='DB_ASEA_REPORTS',
-          schema1='DBO'
+          database1='',
+          schema1=''
         #   schema='SNAPSHOT'
           )    
 
 ctx2 = snowflake.connector.connect(
-          user='MOURADABIDI',
-          password='Ma@07842032',
-          account='ba62849.east-us-2.azure',
-          warehouse= 'COMPUTE_MACHINE',
-          database2='DB_RAW_DATA',
-          schema2='INFOTRAX_PROD')
+          user='',
+          password='',
+          account='',
+          warehouse= '',
+          database2='',
+          schema2='')
 
 
 def  SnowflakeQA(Table1, Table2):
@@ -35,9 +35,9 @@ def  SnowflakeQA(Table1, Table2):
     cur1 = ctx1.cursor()
     
 # # Execute a statement that will generate a result set.
-    warehouse= 'COMPUTE_MACHINE'
-    database1='DB_ASEA_REPORTS'
-    schema1='DBO'
+    warehouse= ''
+    database1=''
+    schema1=''
    
     if warehouse:
         cur1.execute(f'use warehouse {warehouse};')
@@ -58,9 +58,9 @@ def  SnowflakeQA(Table1, Table2):
     
     
     cur2 = ctx2.cursor()
-    warehouse= 'COMPUTE_MACHINE'
-    database2='DB_RAW_DATA'
-    schema2='INFOTRAX_PROD'
+    warehouse= ''
+    database2=''
+    schema2=''
 
 
     if warehouse:
@@ -108,7 +108,7 @@ def  SnowflakeQA(Table1, Table2):
     outlook = client.Dispatch('Outlook.Application')
     message = outlook.Createitem(0)
     message.Display()
-    message.To = 'mabidi@aseaglobal.com'
+    message.To = ''
     message.Subject = 'SQL COMPARE With Window Time '  + sqldatabase +'.dbo.' + ' ' + ' as of ' + ' ' + str(Today)
     message.Body = compare.report()
     message.Save()
